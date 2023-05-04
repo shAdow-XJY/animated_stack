@@ -17,6 +17,7 @@ class AnimatedStack extends StatefulWidget {
   final Curve closeAnimationCurve;
   final IconData buttonIcon;
   final bool animateButton;
+  final Function(bool) onChanged;
 
   const AnimatedStack({
     Key? key,
@@ -34,6 +35,7 @@ class AnimatedStack extends StatefulWidget {
     this.buttonIcon = Icons.add,
     this.animateButton = true,
     this.fabIconColor,
+    required this.onChanged,
   })  : assert(scaleHeight >= 40),
         super(key: key);
 
@@ -67,7 +69,10 @@ class _AnimatedStackState extends State<AnimatedStack> {
           duration: widget.buttonAnimationDuration,
         ),
         backgroundColor: widget.fabBackgroundColor,
-        onPressed: () => setState(() => opened = !opened),
+        onPressed: () => {
+          setState(() => opened = !opened),
+          widget.onChanged(opened),
+        },
       ),
       body: Stack(
         children: <Widget>[

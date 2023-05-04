@@ -1,9 +1,11 @@
 import 'package:animated_stack/animated_stack.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,10 +15,10 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
       ),
       home: AnimatedStack(
-        backgroundColor: Color(0xff321B4A),
-        fabBackgroundColor: Color(0xffEB456F),
+        backgroundColor: const Color(0xff321B4A),
+        fabBackgroundColor: const Color(0xffEB456F),
         foregroundWidget: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xff56377C),
             boxShadow: <BoxShadow>[
               BoxShadow(
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        columnWidget: Column(
+        columnWidget: const Column(
           children: <Widget>[
             _IconTile(
               width: 100,
@@ -58,7 +60,7 @@ class MyApp extends StatelessWidget {
           ],
         ),
         bottomWidget: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xff645478),
             borderRadius: BorderRadius.all(
               Radius.circular(50),
@@ -67,6 +69,7 @@ class MyApp extends StatelessWidget {
           width: 260,
           height: 50,
         ),
+        onChanged: (bool isOpened) {  },
       ),
     );
   }
@@ -89,7 +92,7 @@ class _IconTile extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xff645478),
         borderRadius: BorderRadius.all(
           Radius.circular(15),
@@ -97,7 +100,7 @@ class _IconTile extends StatelessWidget {
       ),
       child: Icon(
         iconData,
-        color: Color(0xffAEA6B6),
+        color: const Color(0xffAEA6B6),
       ),
     );
   }
@@ -107,7 +110,7 @@ class _ItemPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -115,14 +118,14 @@ class _ItemPlaceholder extends StatelessWidget {
             child: Container(
               width: 60,
               height: 60,
-              color: Color(0xff9783A9),
+              color: const Color(0xff9783A9),
             ),
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           Expanded(
             child: Container(
               height: 120,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xff6D528D),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -137,12 +140,12 @@ class _ItemPlaceholder extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      child: _RowPlaceholder(color: 0xffA597B4),
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 2 / 5,
+                      child: const _RowPlaceholder(color: 0xffA597B4),
                     ),
-                    _RowPlaceholder(color: 0xff846CA1),
-                    _RowPlaceholder(color: 0xff846CA1),
+                    const _RowPlaceholder(color: 0xff846CA1),
+                    const _RowPlaceholder(color: 0xff846CA1),
                   ],
                 ),
               ),
@@ -165,7 +168,7 @@ class _RowPlaceholder extends StatelessWidget {
       height: 15,
       decoration: BoxDecoration(
         color: Color(color),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(20),
         ),
       ),
