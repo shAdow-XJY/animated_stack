@@ -1,4 +1,4 @@
-import 'package:animated_stack/animated_stack.dart';
+import '../../lib/animated_stack.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
